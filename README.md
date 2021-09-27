@@ -145,7 +145,7 @@ Sie stehen unter der Lizenz: Creative Commons CC-BY-SA 3.0 Unported (https://cre
 - https://de.wikipedia.org/wiki/Liste_der_Straßen_und_Plätze_in_Berlin-Rosenthal
 	- In der Wikipedia ist eine Liste der Autoren verfügbar: https://de.wikipedia.org/w/index.php?title=Liste_der_Straßen_und_Plätze_in_Berlin-Rosenthal&action=history
 - https://de.wikipedia.org/wiki/Liste_der_Straßen_in_Berlin-Wilhelmsruh
-	- In der Wikipedia ist eine Liste der Autoren verfügbar: https://de.wikipedia.org/w/index.php?title=Liste_der_Straßen_und_Plätze_in_Berlin-Wilhelmsruh&action=history
+	- In der Wikipedia ist eine Liste der Autoren verfügbar: https://de.wikipedia.org/w/index.php?title=Liste_der_Straßen_in_Berlin-Wilhelmsruh&action=history
 - https://de.wikipedia.org/wiki/Liste_der_Straßen_und_Plätze_in_Berlin-Charlottenburg
 	- In der Wikipedia ist eine Liste der Autoren verfügbar: https://de.wikipedia.org/w/index.php?title=Liste_der_Straßen_und_Plätze_in_Berlin-Charlottenburg&action=history
 - https://de.wikipedia.org/wiki/Liste_der_Straßen_und_Plätze_in_Berlin-Wilmersdorf
@@ -219,7 +219,7 @@ Sie stehen unter der Lizenz: Creative Commons CC-BY-SA 3.0 Unported (https://cre
 - https://de.wikipedia.org/wiki/Liste_der_Straßen_und_Plätze_in_Berlin-Alt-Treptow
 	- In der Wikipedia ist eine Liste der Autoren verfügbar: https://de.wikipedia.org/w/index.php?title=Liste_der_Straßen_und_Plätze_in_Berlin-Alt-Treptow&action=history
 - https://de.wikipedia.org/wiki/Liste_der_Straßen_in_Berlin-Plänterwald
-	- In der Wikipedia ist eine Liste der Autoren verfügbar: https://de.wikipedia.org/w/index.php?title=Liste_der_Straßen_und_Plätze_in_Berlin-Plänterwald&action=history
+	- In der Wikipedia ist eine Liste der Autoren verfügbar: https://de.wikipedia.org/w/index.php?title=Liste_der_Straßen_in_Berlin-Plänterwald&action=history
 - https://de.wikipedia.org/wiki/Liste_der_Straßen_und_Plätze_in_Berlin-Baumschulenweg
 	- In der Wikipedia ist eine Liste der Autoren verfügbar: https://de.wikipedia.org/w/index.php?title=Liste_der_Straßen_und_Plätze_in_Berlin-Baumschulenweg&action=history
 - https://de.wikipedia.org/wiki/Liste_der_Straßen_und_Plätze_in_Berlin-Johannisthal
@@ -295,9 +295,9 @@ Sie stehen unter der Lizenz: Creative Commons CC-BY-SA 3.0 Unported (https://cre
 - https://de.wikipedia.org/wiki/Liste_der_Straßen_und_Plätze_in_Berlin-Wittenau
 	- In der Wikipedia ist eine Liste der Autoren verfügbar: https://de.wikipedia.org/w/index.php?title=Liste_der_Straßen_und_Plätze_in_Berlin-Wittenau&action=history
 - https://de.wikipedia.org/wiki/Liste_der_Straßen_in_Berlin-Märkisches_Viertel
-	- In der Wikipedia ist eine Liste der Autoren verfügbar: https://de.wikipedia.org/w/index.php?title=Liste_der_Straßen_und_Plätze_in_Berlin-Märkisches_Viertel&action=history
+	- In der Wikipedia ist eine Liste der Autoren verfügbar: https://de.wikipedia.org/w/index.php?title=Liste_der_Straßen_in_Berlin-Märkisches_Viertel&action=history
 - https://de.wikipedia.org/wiki/Liste_der_Straßen_in_Berlin-Borsigwalde
-	- In der Wikipedia ist eine Liste der Autoren verfügbar: https://de.wikipedia.org/w/index.php?title=Liste_der_Straßen_und_Plätze_in_Berlin-Borsigwalde&action=history
+	- In der Wikipedia ist eine Liste der Autoren verfügbar: https://de.wikipedia.org/w/index.php?title=Liste_der_Straßen_in_Berlin-Borsigwalde&action=history
 
 ## Contributing
 

@@ -4,8 +4,10 @@ import re
 import requests
 from bs4 import BeautifulSoup
 
-WIKI_ARTICLE_URL_PREFIX = "https://de.wikipedia.org/wiki/Liste_der_Straßen_und_Plätze_in_Berlin-"
-WIKI_ARTICLE_URL_PREFIX_ALTERNATIVE = "https://de.wikipedia.org/wiki/Liste_der_Straßen_in_Berlin-"
+WIKI_ARTICLE_URL_PREFIX = "https://de.wikipedia.org/wiki/"
+
+WIKI_ARTICLE_TITLE_PREFIX = "Liste_der_Straßen_und_Plätze_in_Berlin-"
+WIKI_ARTICLE_TITLE_PREFIX_ALTERNATIVE = "Liste_der_Straßen_in_Berlin-"
 
 LICENSE_PREFIX = """Die Straßennamen, sortiert nach Name und Bezirk, wurden aus den unten aufgeführten Artikeln der deutschsprachigen Wikipedia extrahiert.
 Sie stehen unter der Lizenz: Creative Commons CC-BY-SA 3.0 Unported (https://creativecommons.org/licenses/by-sa/3.0/deed.de)\n\n"""
@@ -56,12 +58,18 @@ def get_streets_from_locality(locality):
 
     streets = []
 
-    wiki_url = WIKI_ARTICLE_URL_PREFIX + locality.replace(' ', '_')
+    wiki_url = "https://de.wikipedia.org/wiki/" + WIKI_ARTICLE_TITLE_PREFIX + locality.replace(' ', '_')
     rows = get_table_rows_from_wikipedia_article(wiki_url)
 
+    authors_url = "https://de.wikipedia.org/w/index.php?title=" + WIKI_ARTICLE_TITLE_PREFIX + locality.replace(
+        ' ', '_') + "&action=history"
+
     if rows is None:
-        wiki_url = WIKI_ARTICLE_URL_PREFIX_ALTERNATIVE + locality.replace(' ', '_')
+        wiki_url = "https://de.wikipedia.org/wiki/" + WIKI_ARTICLE_TITLE_PREFIX_ALTERNATIVE + locality.replace(' ', '_')
         rows = get_table_rows_from_wikipedia_article(wiki_url)
+
+        authors_url = "https://de.wikipedia.org/w/index.php?title=" + WIKI_ARTICLE_TITLE_PREFIX_ALTERNATIVE + locality.replace(
+            ' ', '_') + "&action=history"
 
     for row in rows:
         street_name_column = row.find('td')
@@ -83,7 +91,7 @@ def get_streets_from_locality(locality):
         street = street[len(street) - 1]
         streets_in_district_sorted.append(street.strip())
 
-    return {"data": streets_in_district_sorted, "source": wiki_url}
+    return {"data": streets_in_district_sorted, "source": wiki_url, "authors_url": authors_url}
 
 
 def main():
@@ -100,8 +108,7 @@ def main():
 
             locality_data = get_streets_from_locality(current_locality)
             locality_dictionary[current_locality] = locality_data["data"]
-            authors_url = "https://de.wikipedia.org/w/index.php?title=Liste_der_Straßen_und_Plätze_in_Berlin-" + current_locality.replace(
-                ' ', '_') + "&action=history"
+            authors_url = locality_data["authors_url"]
 
             license_text += "- " + locality_data[
                 "source"] + "\n" + "\t- In der Wikipedia ist eine Liste der Autoren verfügbar: " + authors_url + "\n"
