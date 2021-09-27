@@ -1,0 +1,7 @@
+# Development environment
+.idea/
+venv/
+
+# Generated data
+DATA_LICENSE.txt
+streets_in_berlin_by_district_and_locality.json
