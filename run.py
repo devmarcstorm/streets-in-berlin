@@ -23,13 +23,20 @@ def get_table_rows_from_wikipedia_article(url):
         return None
 
 
+def get_wikipedia_urls(article_title):
+    return [
+        "https://de.wikipedia.org/wiki/" + article_title,
+        "https://de.wikipedia.org/w/index.php?title=" + article_title + "&action=history"
+    ]
+
+
 def get_districts_in_berlin():
     print("Get district in Berlin ...")
 
     local_districts_dictionary = {}
 
-    url = "https://de.wikipedia.org/wiki/Verwaltungsgliederung_Berlins"
-    rows = get_table_rows_from_wikipedia_article(url)
+    wiki_url, authors_url = get_wikipedia_urls("Verwaltungsgliederung_Berlins")
+    rows = get_table_rows_from_wikipedia_article(wiki_url)
 
     for row in rows:
         columns = row.find_all('td')
@@ -49,7 +56,7 @@ def get_districts_in_berlin():
 
         local_districts_dictionary[district_name] = localities_list
 
-    return local_districts_dictionary
+    return {"data": local_districts_dictionary, "wiki_url": wiki_url, "authors_url": authors_url}
 
 
 def get_streets_from_locality(locality):
@@ -57,18 +64,12 @@ def get_streets_from_locality(locality):
 
     streets = []
 
-    wiki_url = "https://de.wikipedia.org/wiki/" + WIKI_ARTICLE_TITLE_PREFIX + locality.replace(' ', '_')
+    wiki_url, authors_url = get_wikipedia_urls(WIKI_ARTICLE_TITLE_PREFIX + locality.replace(' ', '_'))
     rows = get_table_rows_from_wikipedia_article(wiki_url)
 
-    authors_url = "https://de.wikipedia.org/w/index.php?title=" + WIKI_ARTICLE_TITLE_PREFIX + locality.replace(
-        ' ', '_') + "&action=history"
-
     if rows is None:
-        wiki_url = "https://de.wikipedia.org/wiki/" + WIKI_ARTICLE_TITLE_PREFIX_ALTERNATIVE + locality.replace(' ', '_')
+        wiki_url, authors_url = get_wikipedia_urls(WIKI_ARTICLE_TITLE_PREFIX_ALTERNATIVE + locality.replace(' ', '_'))
         rows = get_table_rows_from_wikipedia_article(wiki_url)
-
-        authors_url = "https://de.wikipedia.org/w/index.php?title=" + WIKI_ARTICLE_TITLE_PREFIX_ALTERNATIVE + locality.replace(
-            ' ', '_') + "&action=history"
 
     for row in rows:
         street_name_column = row.find('td')
@@ -90,7 +91,11 @@ def get_streets_from_locality(locality):
         street = street[len(street) - 1]
         streets_in_district_sorted.append(street.strip())
 
-    return {"data": streets_in_district_sorted, "source": wiki_url, "authors_url": authors_url}
+    return {"data": streets_in_district_sorted, "wiki_url": wiki_url, "authors_url": authors_url}
+
+
+def get_license_text_source_line(wiki_url, authors_url):
+    return "- " + wiki_url + "\n" + "\t- In der Wikipedia ist eine Liste der Autoren verfügbar: " + authors_url + "\n"
 
 
 def main():
@@ -98,19 +103,17 @@ def main():
     districts_dictionary = get_districts_in_berlin()
 
     license_text = LICENSE_PREFIX
+    license_text += get_license_text_source_line(districts_dictionary["wiki_url"], districts_dictionary["authors_url"])
 
-    for key in districts_dictionary:
+    for key in districts_dictionary["data"]:
         locality_dictionary = {}
 
-        for current_locality in districts_dictionary[key]:
+        for current_locality in districts_dictionary["data"][key]:
             current_locality = current_locality.replace(" ", " ")
 
             locality_data = get_streets_from_locality(current_locality)
             locality_dictionary[current_locality] = locality_data["data"]
-            authors_url = locality_data["authors_url"]
-
-            license_text += "- " + locality_data[
-                "source"] + "\n" + "\t- In der Wikipedia ist eine Liste der Autoren verfügbar: " + authors_url + "\n"
+            license_text += get_license_text_source_line(locality_data["wiki_url"], locality_data["authors_url"])
 
         districts_dictionary_out[key] = locality_dictionary
 

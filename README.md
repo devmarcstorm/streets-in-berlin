@@ -118,6 +118,8 @@ SOFTWARE.
 Die Straßennamen, sortiert nach Name und Bezirk, wurden aus den unten aufgeführten Artikeln der deutschsprachigen Wikipedia extrahiert.
 Sie stehen unter der Lizenz: Creative Commons CC-BY-SA 3.0 Unported (https://creativecommons.org/licenses/by-sa/3.0/deed.de)
 
+- https://de.wikipedia.org/wiki/Verwaltungsgliederung_Berlins
+	- In der Wikipedia ist eine Liste der Autoren verfügbar: https://de.wikipedia.org/w/index.php?title=Verwaltungsgliederung_Berlins&action=history
 - https://de.wikipedia.org/wiki/Liste_der_Straßen_und_Plätze_in_Berlin-Mitte
 	- In der Wikipedia ist eine Liste der Autoren verfügbar: https://de.wikipedia.org/w/index.php?title=Liste_der_Straßen_und_Plätze_in_Berlin-Mitte&action=history
 - https://de.wikipedia.org/wiki/Liste_der_Straßen_und_Plätze_in_Berlin-Moabit
