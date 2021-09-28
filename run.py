@@ -1,5 +1,6 @@
 import json
 import re
+from datetime import datetime
 
 import requests
 from bs4 import BeautifulSoup
@@ -115,7 +116,9 @@ def main():
 
     print("Write data to JSON-File")
     with open('streets_in_berlin_by_district_and_locality.json', 'w', encoding='utf8') as fp:
-        json.dump({"license": license_text, "data": districts_dictionary_out}, fp, indent=2, sort_keys=True,
+        last_updated = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
+        json.dump({"license": license_text, "last_updated_UTC_ISO8601": last_updated, "data": districts_dictionary_out},
+                  fp, indent=2, sort_keys=True,
                   ensure_ascii=False)
 
     print("Write data license to DATA_LICENSE.txt")
