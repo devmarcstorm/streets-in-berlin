@@ -4,8 +4,6 @@ import re
 import requests
 from bs4 import BeautifulSoup
 
-WIKI_ARTICLE_URL_PREFIX = "https://de.wikipedia.org/wiki/"
-
 WIKI_ARTICLE_TITLE_PREFIX = "Liste_der_Straßen_und_Plätze_in_Berlin-"
 WIKI_ARTICLE_TITLE_PREFIX_ALTERNATIVE = "Liste_der_Straßen_in_Berlin-"
 
